@@ -1,3 +1,6 @@
 {
-	"location" : "/home/xdude/.bitcoin/"
+	"location" : "/home/xdude/.bitcoin/",
+	"address_t" : "bcrt1qs4hqdl7et80gurgg6n5r8esal0cmxepuyenpv9",
+	"address_a" : "bcrt1qf42k9enne6vt8ytg3hvpr0hp4lmyljkc7kj6d5",
+	"address_b" : "bcrt1qgkfuv3cfaak2tn6ardg26nfe8s5kh0g0ns9ju4"
 }

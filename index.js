@@ -1,25 +1,43 @@
-const { execSync } = require('child_process')
-const { location } = require('./config.json')
+
+const fs = require('fs');
+const func = require('./function')
+console.log('\n')
+
+
+// let genblock = func.genblock()
+// console.log("------------------ genblock ---------------------")
+// console.log("---~/pcode/getmerkleroot/index.js---8---👉", genblock )
+// console.log('\n')
+
+let temp = func.gettemplate()
+temp = JSON.parse( temp )
+fs.writeFileSync( 'templateB.json', JSON.stringify( temp , null, 4 ) )
+console.log("------------------ txid ---------------------")
+temp.transactions.map( x => console.log( x.txid ))
+console.log("---~/pcode/getmerkleroot/index.js---20---👉", temp.transactions.length)
+console.log('\n')
 
 
 
-function rpcCmd( data ) {
-	let user = ""
-	if( data[0] != "" ){
-		let port = 9334;
-		if( data[0] == 'bob') port = 9333
-		user = `-rpcuser=${data[0]} -rpcpassword=${data[0]} -rpcport=${port} -datadir=${location}${data[0]}`
-	}
-	let command = data[1]
-	let subcommand = ""
-	if( data[2] != "" ){
-		subcommand = `${data[2]}`
-	}
+// console.log("------------------ sendMoney ---------------------")
+// let send = func.sendmoney()
+// console.log( send )
+// console.log('\n')
 
-	let fCommand = `bitcoin-cli -regtest ${user} ${command} '${subcommand}'`
-	let ans = execSync( fCommand )
-	return JSON.parse( ans.toString())
-}
 
-let ans = rpcCmd([ "", "getblocktemplate", '{"rules": ["segwit"]}'])
-console.log("---~/pcode/getmerkleroot/index.js---21---👉", ans )
+// func.sleep( 10 )
+// let temp1 = func.gettemplate()
+// temp1 = JSON.parse( temp1 )
+// console.log("------------------ txid after ---------------------")
+// temp1.transactions.map( y => console.log( y.txid ))
+// console.log("---~/pcode/getmerkleroot/index.js---20---👉", temp1.transactions.length)
+// console.log('\n')
+
+
+
+
+
+// temp = func.gettemplate()
+// temp = JSON.parse( temp )
+// temp.transactions.map( x => console.log( x.txid ))
+
